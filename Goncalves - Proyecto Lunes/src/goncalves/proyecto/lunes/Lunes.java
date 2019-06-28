@@ -11,11 +11,30 @@ package goncalves.proyecto.lunes;
  */
 public class Lunes {
 
+    
+    
+     public static VentanaLogin ventanaLogin = null;
+     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hola mundo");
+        
+        iniciar();
+        
+       
+        
+        
+    
+        
+        
     }
     
+    public static void iniciar(){
+    
+    ventanaLogin.setVisible(true);
+        
+                                }
+
+
 }
