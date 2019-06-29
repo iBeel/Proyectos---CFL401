@@ -12,7 +12,7 @@ package goncalves.proyecto.lunes;
 public class Lunes {
 
     
-    
+     
      public static VentanaLogin ventanaLogin = null;
      
     /**
@@ -20,7 +20,15 @@ public class Lunes {
      */
     public static void main(String[] args) {
         
+        ventanaLogin = new VentanaLogin();
+        
+        ventanaLogin = new VentanaLogin();
+        
+        
         iniciar();
+        
+        
+        
         
        
         
@@ -35,6 +43,22 @@ public class Lunes {
     ventanaLogin.setVisible(true);
         
                                 }
+  public static void mostrar(){
+      
+       PersonaCorta per1 = new PersonaCorta(23,"Gomez","Juan"); //Si no se ingresa un parámetro no anda porque no tiene un constructor genérico
+        
+       PersonaCorta per2 = new PersonaCorta(24,"Gomez","Agustin");
 
+       PersonaCorta per3 = new PersonaCorta(100,"Gomez","Lilian");
+        
+       System.out.println(per1.getNombre());
+        
+       per3.setNombre("Yuya");
+       
+       System.out.println(per1.getNombre()); //Al ser estático, al modificar el nombre, todos pasan a sufrir dicha modificacion.
+        
+      
+      
+  }
 
 }
