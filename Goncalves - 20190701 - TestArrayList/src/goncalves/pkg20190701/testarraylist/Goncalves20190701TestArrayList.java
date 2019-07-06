@@ -19,7 +19,7 @@ public class Goncalves20190701TestArrayList {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList elem = new ArrayList();
+        /*ArrayList elem = new ArrayList();
          ArrayList mascotas = new ArrayList();
         //Scanner teclado = new Scanner(System.in);
         
@@ -69,8 +69,42 @@ public class Goncalves20190701TestArrayList {
           
       }                    
         
-        JOptionPane.showMessageDialog(null,elem2); 
-      }
+        JOptionPane.showMessageDialog(null,elem2); */
+     
+     Persona per1 = new Persona ("José Luis",45);
+     
+     Persona per2 = new Persona("Marta", 53);
+    
+     Mascota perro1 = new Mascota ("Simón",4,2);
+     
+     Mascota gato1 = new Mascota ("Michi",4,1);
+     
+     Mascota loro = new Mascota("Verde",2,2);
+     
+     per1.agregarMascota(perro1);
+    
+     per2.agregarMascota(gato1);
+     
+     per1.agregarMascota(loro);
+     
+    //Aumentar la edad del gato.
+     
+     System.out.println( gato1.getEdad());
+     
+     //int edg = gato1.getEdad();
+     
+     //System.out.println(edg);
+     
+     //gato1.setEdad(edg);
+     
+     gato1.setEdad(gato1.getEdad() + 1);
+     
+     System.out.println( gato1.getEdad());
+     
+     System.out.println(per1.cantMascotas());
+     
+     
+    }
     
     
       
