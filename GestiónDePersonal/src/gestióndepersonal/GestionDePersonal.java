@@ -5,7 +5,6 @@
  */
 package gestióndepersonal;
 
-import gestión.de.personal.CargaUsuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,19 +16,55 @@ public class GestionDePersonal {
      private static MenuPrincipal menuPrincipal;
      private static CargaUsuario cargarUsuario;
      private static GenerarTablas generarTablas;
+     private static testVentana testVentana;
+     private static ConexionDB conexionDB;
+
+    public static ConexionDB getConexionDB() {
+        return conexionDB;
+    }
+
+    public static void setConexionDB(ConexionDB conexionDB) {
+        GestionDePersonal.conexionDB = conexionDB;
+    }
+     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
         menuPrincipal = new MenuPrincipal();
-        cargarUsuario = new CargaUsuario();
+        cargarUsuario = new CargaUsuario(primerUsuario());
         generarTablas = new GenerarTablas();
-        
-        menuPrincipal.setVisible(true);
-        
+        testVentana = new testVentana();
         
         
+        
+        
+        
+        if(primerUsuario()){
+        
+        cambiarVentana("cargarU");
+        
+        
+        }
+        else{
+        
+        //cambiarVentana("menu");
+        testVentana.setVisible(true);
+        
+        }
+        
+        if(primerUsuario()){
+   
+        cargarUsuario.setTitle("Carga de Usuario GG");
+         
+        cargarUsuario.dispose();
+        cargarUsuario.setLocationRelativeTo(null); //Centrar la ventana en la pantalla.
+        cargarUsuario.setUndecorated(false);
+        cargarUsuario.setVisible(true);
+        
+        
+        }
     }
     
     
@@ -75,4 +110,20 @@ public class GestionDePersonal {
       
     }
     
+    private static boolean primerUsuario(){
+  
+  return false;
+  
+  
+  }  
+
+    public static void mostrar(){
+    
+    System.out.println(conexionDB);
+    
+    }
+    
+
+
 }
+
