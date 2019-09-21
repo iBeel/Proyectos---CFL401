@@ -7,12 +7,14 @@ package gestióndepersonal;
 
 import java.sql.*;
 
+ 
 /**
  *
  * @author CFL 401
  */
 public class ConexionDB {
     
+    DatosDeConexion datos = new DatosDeConexion();
     private String ip;
     private String puerto;
     private String baseDeDatos;
@@ -109,4 +111,5 @@ public class ConexionDB {
    
    }
   
+   
 }
