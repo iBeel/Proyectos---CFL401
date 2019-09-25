@@ -149,6 +149,17 @@ public class CargaUsuario extends javax.swing.JFrame {
 
         jLabel17.setText("Código postal:");
 
+        nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreActionPerformed(evt);
+            }
+        });
+        nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombreKeyTyped(evt);
+            }
+        });
+
         diaNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 diaNacimientoKeyTyped(evt);
@@ -536,6 +547,58 @@ public class CargaUsuario extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyTyped
+        
+        char [] cadena = nombre.getText().toCharArray();
+        
+        if (nombre.getText().length() > 0){
+            if( evt.getKeyChar() == ' ' && cadena[ nombre.getText().length() -1 ] == ' '){
+                System.out.println("Habia un espacio");
+                evt.consume();
+            }
+        
+        }
+        
+        if(nombre.getText().length()>0){
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        }
+        
+        //System.out.println(nombre.getText().isEmpty());
+        char c = evt.getKeyChar();
+        
+        
+        if((c>='A' && c<='Z')||(c>='a' && c<='z')||(c==' ')){
+            if (nombre.getText().isEmpty()&& c==' '){
+                evt.consume();
+            }
+      
+        }
+        
+        else{
+            
+          evt.consume();  
+            
+            
+        }
+        
+       
+        
+        
+    }//GEN-LAST:event_nombreKeyTyped
+
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreActionPerformed
 
     /**
      * @param args the command line arguments

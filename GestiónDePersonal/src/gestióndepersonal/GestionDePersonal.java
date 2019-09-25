@@ -48,23 +48,23 @@ public class GestionDePersonal {
         
         }
         else{
-        
+        }
         //cambiarVentana("menu");
         testVentana.setVisible(true);
         
-        }
         
-        if(primerUsuario()){
+        
+        /*if(primerUsuario()){
    
         cargarUsuario.setTitle("Carga de Usuario GG");
          
         cargarUsuario.dispose();
         cargarUsuario.setLocationRelativeTo(null); //Centrar la ventana en la pantalla.
         cargarUsuario.setUndecorated(false);
-        cargarUsuario.setVisible(true);
+        //cargarUsuario.setVisible(true);
         
         
-        }
+        }*/
     }
     
     
@@ -121,6 +121,10 @@ public class GestionDePersonal {
     
     System.out.println(conexionDB);
     
+    }
+
+    public static testVentana getTestVentana() {
+        return testVentana;
     }
     
 

@@ -6,6 +6,7 @@
 package gestióndepersonal;
 
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,14 +16,15 @@ import java.util.logging.Logger;
  */
 public class testVentana extends javax.swing.JFrame {
 
-     
     
     /**
      * Creates new form testVentana
      */
     public testVentana() {
         initComponents();
+     
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +35,7 @@ public class testVentana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        fieldCrearTablaC = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,20 +44,20 @@ public class testVentana extends javax.swing.JFrame {
         fieldNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        fieldCrearTabla = new javax.swing.JTextField();
+        fieldCrearColumnas = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnCrear = new javax.swing.JButton();
+        fieldIngresar = new javax.swing.JTextField();
+        btnIngresar = new javax.swing.JToggleButton();
+        btnActualizar = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
+        btnExiste = new javax.swing.JButton();
         btnConectar = new javax.swing.JButton();
         textoEstado = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        fieldActualizar = new javax.swing.JTextField();
+        fieldExiste = new javax.swing.JTextField();
+        fieldBorrar = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -70,18 +72,21 @@ public class testVentana extends javax.swing.JFrame {
 
         jLabel3.setText("Apellido");
 
+        fieldID.setEnabled(false);
         fieldID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldIDActionPerformed(evt);
             }
         });
 
+        fieldApellido.setEnabled(false);
         fieldApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldApellidoActionPerformed(evt);
             }
         });
 
+        fieldNombre.setEnabled(false);
         fieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldNombreActionPerformed(evt);
@@ -90,31 +95,36 @@ public class testVentana extends javax.swing.JFrame {
 
         jLabel4.setText("Texto de informe.");
 
-        jTextField1.setEditable(false);
-        jTextField1.setText("nomTabla");
-        jTextField1.setToolTipText("iygjyguyguyj");
+        fieldCrearTabla.setEditable(false);
+        fieldCrearTabla.setText("nomTabla");
+        fieldCrearTabla.setToolTipText("iygjyguyguyj");
 
-        jTextField2.setEditable(false);
-        jTextField2.setText("columnas");
+        fieldCrearColumnas.setEditable(false);
+        fieldCrearColumnas.setText("columnas");
 
         jLabel6.setText("Tabla");
 
-        jButton1.setText("Crear");
-        jButton1.setEnabled(false);
+        btnCrear.setText("Crear");
+        btnCrear.setEnabled(false);
+        btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearMouseClicked(evt);
+            }
+        });
 
-        jTextField3.setEditable(false);
+        fieldIngresar.setEditable(false);
 
-        jToggleButton1.setText("Ingresar");
-        jToggleButton1.setEnabled(false);
+        btnIngresar.setText("Ingresar");
+        btnIngresar.setEnabled(false);
 
-        jButton2.setText("Actualizar");
-        jButton2.setEnabled(false);
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setEnabled(false);
 
-        jButton3.setText("Borrar");
-        jButton3.setEnabled(false);
+        btnBorrar.setText("Borrar");
+        btnBorrar.setEnabled(false);
 
-        jButton4.setText("Existe");
-        jButton4.setEnabled(false);
+        btnExiste.setText("Existe");
+        btnExiste.setEnabled(false);
 
         btnConectar.setText("Conectar");
         btnConectar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,14 +132,19 @@ public class testVentana extends javax.swing.JFrame {
                 btnConectarMouseClicked(evt);
             }
         });
+        btnConectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConectarActionPerformed(evt);
+            }
+        });
 
-        textoEstado.setText("Estado");
+        textoEstado.setText("Desconectado");
 
-        jTextField4.setEditable(false);
+        fieldActualizar.setEditable(false);
 
-        jTextField5.setEditable(false);
+        fieldExiste.setEditable(false);
 
-        jTextField6.setEditable(false);
+        fieldBorrar.setEditable(false);
 
         jLabel8.setText("Tabla");
 
@@ -141,123 +156,123 @@ public class testVentana extends javax.swing.JFrame {
 
         jLabel12.setText("Tabla");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout fieldCrearTablaCLayout = new javax.swing.GroupLayout(fieldCrearTablaC);
+        fieldCrearTablaC.setLayout(fieldCrearTablaCLayout);
+        fieldCrearTablaCLayout.setHorizontalGroup(
+            fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
+                        .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(113, 113, 113)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(51, 51, 51))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldCrearTablaCLayout.createSequentialGroup()
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addGap(53, 53, 53))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fieldCrearTablaCLayout.createSequentialGroup()
+                        .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fieldCrearTablaCLayout.createSequentialGroup()
+                                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
                                         .addGap(25, 25, 25)
                                         .addComponent(jLabel5)
                                         .addGap(48, 48, 48))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldCrearTablaCLayout.createSequentialGroup()
                                         .addContainerGap()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel9)
                                             .addComponent(jLabel8)
                                             .addComponent(jLabel10)
                                             .addComponent(jLabel12)
                                             .addComponent(jLabel11))
                                         .addGap(29, 29, 29)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+                                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(fieldActualizar)
+                                    .addComponent(fieldIngresar)
+                                    .addComponent(fieldCrearTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                                    .addComponent(fieldExiste, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                                    .addComponent(fieldBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(fieldCrearColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fieldCrearTablaCLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(textoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(textoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnExiste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                        .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btnConectar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        fieldCrearTablaCLayout.setVerticalGroup(
+            fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(fieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel2)
                         .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldCrearTablaCLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(fieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldCrearTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldCrearColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jButton1)
+                    .addComponent(btnCrear)
                     .addComponent(jLabel12))
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1)
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fieldIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIngresar)
                     .addComponent(jLabel8))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizar)
+                    .addComponent(fieldActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBorrar)
+                    .addComponent(fieldBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExiste)
+                    .addComponent(fieldExiste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(111, 111, 111)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConectar)
-                    .addComponent(textoEstado))
+                    .addComponent(textoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(147, Short.MAX_VALUE))
         );
 
@@ -265,12 +280,12 @@ public class testVentana extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fieldCrearTablaC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldCrearTablaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -290,54 +305,61 @@ public class testVentana extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldIDActionPerformed
 
     private void btnConectarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConectarMouseClicked
-        
-        textoEstado.setText("Conectado");
-     
-        
-        
-        if(GestionDePersonal.getConexionDB()!=null){
-        
-       if(GestionDePersonal.getConexionDB().conectarADB()){
-       
-       jButton1.setEnabled(true);
-       
-       
-       
-       }
-        
-        }else{
-        
+
+        if (btnConectar.getText().equals("Conectar") && GestionDePersonal.getConexionDB() == null) {
+
+            DatosDeConexion datosDeConexion = new DatosDeConexion();
+            setVisible(false);
+            datosDeConexion.setVisible(true);
+
+        } else if (btnConectar.getText().equals("Conectar") && GestionDePersonal.getConexionDB() != null) {
+            System.out.println(GestionDePersonal.getConexionDB().conectarADB());
+            Activar();
+            btnConectar.setText("Desconectar");
+            textoEstado.setText("Conectado");
+        }
+
+        else  if (btnConectar.getText().equals("Desconectar")) {
+
             try {
-                GestionDePersonal.setConexionDB(new ConexionDB("127.0.0.1","3306","proyecto_test","programador","cfl401"));
-                GestionDePersonal.mostrar();
+
+                GestionDePersonal.getConexionDB().cerrarConex();
+                Desactivar();
+                btnConectar.setText("Conectar");
+                textoEstado.setText("Desconectado");
             } catch (SQLException ex) {
                 Logger.getLogger(testVentana.class.getName()).log(Level.SEVERE, null, ex);
-                
             }
-        
-        
+
         }
-        
-   boolean condicion = GestionDePersonal.getConexionDB().conectarADB();
-   
-   if(condicion){
-   
-   jButton1.setEnabled(true);
-   
-   
-   
-   
-   
-   }
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_btnConectarMouseClicked
 
-    
- 
+    private void btnConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarActionPerformed
+
+
+    }//GEN-LAST:event_btnConectarActionPerformed
+
+    private void btnCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseClicked
+
+       String nombreTabla= fieldCrearTabla.getText();
+       String columnas= fieldCrearColumnas.getText();
+        
+        try {
+            GestionDePersonal.getConexionDB().crearTabla(nombreTabla, columnas);
+        } catch (SQLException ex) {
+            System.out.println("No se creó la tabla");
+        }
+            
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnCrearMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -374,14 +396,22 @@ public class testVentana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnConectar;
+    private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btnExiste;
+    private javax.swing.JToggleButton btnIngresar;
+    private javax.swing.JTextField fieldActualizar;
     private javax.swing.JTextField fieldApellido;
+    private javax.swing.JTextField fieldBorrar;
+    private javax.swing.JTextField fieldCrearColumnas;
+    private javax.swing.JTextField fieldCrearTabla;
+    private javax.swing.JPanel fieldCrearTablaC;
+    private javax.swing.JTextField fieldExiste;
     private javax.swing.JTextField fieldID;
+    private javax.swing.JTextField fieldIngresar;
     private javax.swing.JTextField fieldNombre;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -393,14 +423,50 @@ public class testVentana extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel textoEstado;
     // End of variables declaration//GEN-END:variables
+
+    public void Activar() {
+
+        btnCrear.setEnabled(true);
+        btnIngresar.setEnabled(true);
+        btnExiste.setEnabled(true);
+        btnBorrar.setEnabled(true);
+        btnActualizar.setEnabled(true);
+        fieldIngresar.setEditable(true);
+        fieldExiste.setEditable(true);
+        fieldBorrar.setEditable(true);
+        fieldActualizar.setEditable(true);
+        fieldCrearTabla.setEditable(true);
+        fieldCrearColumnas.setEditable(true);
+        fieldNombre.setEditable(true);
+        fieldApellido.setEditable(true);
+        fieldID.setEditable(true);
+        fieldNombre.setEnabled(true);
+        fieldApellido.setEnabled(true);
+        fieldID.setEnabled(true);
+        btnConectar.setText("Desconectar");
+        textoEstado.setText("Conectado");
+        
+        
+
+    }
+
+    public void Desactivar() {
+
+        btnCrear.setEnabled(false);
+        btnIngresar.setEnabled(false);
+        btnExiste.setEnabled(false);
+        btnBorrar.setEnabled(false);
+        btnActualizar.setEnabled(false);
+        fieldIngresar.setEditable(false);
+        fieldExiste.setEditable(false);
+        fieldBorrar.setEditable(false);
+        fieldActualizar.setEditable(false);
+        fieldCrearTabla.setEditable(false);
+        fieldCrearColumnas.setEditable(false);
+        fieldNombre.setEditable(false);
+        fieldApellido.setEditable(false);
+        fieldID.setEditable(false);
+    }
 }
