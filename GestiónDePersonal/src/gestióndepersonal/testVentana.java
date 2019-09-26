@@ -46,7 +46,6 @@ public class testVentana extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         fieldCrearTabla = new javax.swing.JTextField();
         fieldCrearColumnas = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
         fieldIngresar = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JToggleButton();
@@ -63,6 +62,8 @@ public class testVentana extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        iColumnas = new javax.swing.JTextField();
+        condiciones = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,9 +101,6 @@ public class testVentana extends javax.swing.JFrame {
         fieldCrearTabla.setToolTipText("iygjyguyguyj");
 
         fieldCrearColumnas.setEditable(false);
-        fieldCrearColumnas.setText("columnas");
-
-        jLabel6.setText("Tabla");
 
         btnCrear.setText("Crear");
         btnCrear.setEnabled(false);
@@ -116,6 +114,11 @@ public class testVentana extends javax.swing.JFrame {
 
         btnIngresar.setText("Ingresar");
         btnIngresar.setEnabled(false);
+        btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseClicked(evt);
+            }
+        });
 
         btnActualizar.setText("Actualizar");
         btnActualizar.setEnabled(false);
@@ -177,39 +180,38 @@ public class testVentana extends javax.swing.JFrame {
                 .addGap(51, 51, 51))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldCrearTablaCLayout.createSequentialGroup()
                 .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addGap(53, 53, 53))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fieldCrearTablaCLayout.createSequentialGroup()
-                        .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fieldCrearTablaCLayout.createSequentialGroup()
-                                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addComponent(jLabel5)
-                                        .addGap(48, 48, 48))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldCrearTablaCLayout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel12)
-                                            .addComponent(jLabel11))
-                                        .addGap(29, 29, 29)))
-                                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fieldActualizar)
-                                    .addComponent(fieldIngresar)
-                                    .addComponent(fieldCrearTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                    .addComponent(fieldExiste, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                    .addComponent(fieldBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+                        .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel5)
+                                .addGap(48, 48, 48))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldCrearTablaCLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel11))
+                                .addGap(29, 29, 29)))
+                        .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(fieldActualizar)
+                            .addComponent(fieldIngresar)
+                            .addComponent(fieldCrearTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(fieldExiste, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(fieldBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fieldCrearColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(fieldCrearTablaCLayout.createSequentialGroup()
+                                .addComponent(iColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(fieldCrearColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fieldCrearTablaCLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(textoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(condiciones, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fieldCrearTablaCLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(textoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btnExiste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -246,14 +248,15 @@ public class testVentana extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(fieldCrearTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fieldCrearColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
                     .addComponent(btnCrear)
                     .addComponent(jLabel12))
                 .addGap(35, 35, 35)
                 .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnIngresar)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8)
+                    .addComponent(iColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(condiciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(fieldCrearTablaCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar)
@@ -360,6 +363,24 @@ public class testVentana extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCrearMouseClicked
 
+    private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
+        
+       String iD= fieldID.getText();
+       String nombre = fieldNombre.getText();
+       String apellido= fieldApellido.getText();
+       String tabla = fieldIngresar.getText();
+       String columnas = iColumnas.getText();
+       String cond = condiciones.getText();
+       String valores = iD+"'"+nombre+"'"+","+"'"+apellido+"'"+";";
+       
+        try {
+            GestionDePersonal.getConexionDB().insertar(tabla, null, (iD + ",'" + nombre +"', '"+ apellido + "'"), "");
+        } catch (SQLException ex) {
+            System.out.println("Error al Insertar");
+        }
+        
+    }//GEN-LAST:event_btnIngresarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -402,6 +423,7 @@ public class testVentana extends javax.swing.JFrame {
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnExiste;
     private javax.swing.JToggleButton btnIngresar;
+    private javax.swing.JTextField condiciones;
     private javax.swing.JTextField fieldActualizar;
     private javax.swing.JTextField fieldApellido;
     private javax.swing.JTextField fieldBorrar;
@@ -412,6 +434,7 @@ public class testVentana extends javax.swing.JFrame {
     private javax.swing.JTextField fieldID;
     private javax.swing.JTextField fieldIngresar;
     private javax.swing.JTextField fieldNombre;
+    private javax.swing.JTextField iColumnas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -420,7 +443,6 @@ public class testVentana extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel textoEstado;
