@@ -51,7 +51,9 @@ public class ConexionDB {
     public void insertar(String tabla, String columnas, String valores, String condiciones) throws SQLException {
 
         if (columnas == null) {
-            flujoConexion.execute("INSERT INTO " + tabla + " VALUES(" + valores + ") " + condiciones + ";");
+            String query = "INSERT INTO " + tabla + " VALUES(" + valores + ") " + condiciones + ";";
+            System.out.println(query);
+            flujoConexion.execute(query);
         } else {
             flujoConexion.execute("INSERT INTO " + tabla + "(" + columnas + ")" + " VALUES(" + valores + ") " + condiciones + ";");
 
