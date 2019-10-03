@@ -58,18 +58,23 @@ public class DatosDeConexion extends javax.swing.JFrame {
 
         fieldPuerto.setText("3306");
 
-        fieldDB.setText("proyecto_test");
+        fieldDB.setText("ramiro");
 
-        fieldUsuario.setText("programador");
+        fieldUsuario.setText("ramiro");
+        fieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldUsuarioActionPerformed(evt);
+            }
+        });
 
-        fieldIp.setText("127.0.0.1");
+        fieldIp.setText("192.168.0.8");
         fieldIp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldIpActionPerformed(evt);
             }
         });
 
-        fieldContraseña.setText("cfl401");
+        fieldContraseña.setText("ramiro");
 
         btbConectar.setText("Conectar");
         btbConectar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,11 +175,16 @@ public class DatosDeConexion extends javax.swing.JFrame {
         try {
             GestionDePersonal.setConexionDB(new ConexionDB(ip, puerto, db, usuario, contrasenia));
             if (GestionDePersonal.getConexionDB().conectarADB()) {
+               
+                
+                ((PanelLogin)GestionDePersonal.getVentanaPrincipal().getPantallaPrincipal().getComponent(0)).cambiarTextoEstado("Conectado a DB");
+                
                 System.out.println("Se creó correctamente");
                 setVisible(false);
                 //testVentana ventana = new testVentana(true); //Mandandole este parámetro informo a la clase testVentana que la conexión se realizó y entonces es posible habilitar el JFrame.
-                GestionDePersonal.getTestVentana().setVisible(true);
-                GestionDePersonal.getTestVentana().Activar();
+               GestionDePersonal.getVentanaPrincipal().setVisible(true);
+               
+                
                 
             }
             else{
@@ -192,6 +202,10 @@ public class DatosDeConexion extends javax.swing.JFrame {
     private void btbConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbConectarActionPerformed
 
     }//GEN-LAST:event_btbConectarActionPerformed
+
+    private void fieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

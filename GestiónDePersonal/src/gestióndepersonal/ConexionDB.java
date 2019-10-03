@@ -62,8 +62,10 @@ public class ConexionDB {
     }
 
     public void actualizar(String tabla, String valores, String condiciones) throws SQLException {
-
-        flujoConexion.execute("UPDATE " + tabla + " SET " + valores + " WHERE " + condiciones + ";");
+        String query ="UPDATE " + tabla + " SET " + valores + " WHERE " + condiciones + ";";
+        
+        System.out.println(query);
+        flujoConexion.execute(query);
 
     }
 

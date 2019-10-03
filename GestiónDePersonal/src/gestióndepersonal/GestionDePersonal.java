@@ -12,12 +12,13 @@ import javax.swing.JOptionPane;
  * @author CFL 401
  */
 public class GestionDePersonal {
-     
-     private static MenuPrincipal menuPrincipal;
-     private static CargaUsuario cargarUsuario;
-     private static GenerarTablas generarTablas;
-     private static testVentana testVentana;
-     private static ConexionDB conexionDB;
+
+    private static MenuPrincipal menuPrincipal;
+    private static CargaUsuario cargarUsuario;
+    private static GenerarTablas generarTablas;
+    private static TestVentana testVentana;
+    private static ConexionDB conexionDB;
+    private static VentanaPrincipal ventanaPrincipal;
 
     public static ConexionDB getConexionDB() {
         return conexionDB;
@@ -26,34 +27,33 @@ public class GestionDePersonal {
     public static void setConexionDB(ConexionDB conexionDB) {
         GestionDePersonal.conexionDB = conexionDB;
     }
-     
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
+        ventanaPrincipal = new VentanaPrincipal();
+        ventanaPrincipal.setSize(300, 400);
+        ventanaPrincipal.setLocationRelativeTo(null);
+        ventanaPrincipal.mostrarElLogin();
+        ventanaPrincipal.setResizable(false);
+        ventanaPrincipal.setVisible(true);
+
         menuPrincipal = new MenuPrincipal();
         cargarUsuario = new CargaUsuario(primerUsuario());
         generarTablas = new GenerarTablas();
-        testVentana = new testVentana();
-        
-        
-        
-        
-        
-        if(primerUsuario()){
-        
-        cambiarVentana("cargarU");
-        
-        
-        }
-        else{
+        testVentana = new TestVentana();
+
+        if (primerUsuario()) {
+
+            cambiarVentana("cargarU");
+
+        } else {
         }
         //cambiarVentana("menu");
-        testVentana.setVisible(true);
-        
-        
-        
+        //testVentana.setVisible(true);
+
         /*if(primerUsuario()){
    
         cargarUsuario.setTitle("Carga de Usuario GG");
@@ -66,68 +66,62 @@ public class GestionDePersonal {
         
         }*/
     }
-    
-    
-    public static void cambiarVentana (String nombre){
-    
-    switch(nombre){
-    
-        case "menu":  ocultarVentana();
-                      menuPrincipal.setVisible(true);
-        
-        
-                       break;
-                     
-        case "cargarU": ocultarVentana();
-                        cargarUsuario.setVisible(true);
-       
-        
-                        break;
-                     
-        case "generarTabla":  ocultarVentana();
-                              generarTablas.setVisible(true);
-        
-        
-                         break;
-                     
-        default: JOptionPane.showMessageDialog(null,"No se encontró la opción");
-                     
-        
-    
-    
+
+    public static VentanaPrincipal getVentanaPrincipal() {
+        return ventanaPrincipal;
     }
-    
-   
-    
-    
+
+    public static void cambiarVentana(String nombre) {
+
+        switch (nombre) {
+
+            case "menu":
+                ocultarVentana();
+                menuPrincipal.setVisible(true);
+
+                break;
+
+            case "cargarU":
+                ocultarVentana();
+                cargarUsuario.setVisible(true);
+
+                break;
+
+            case "generarTabla":
+                ocultarVentana();
+                generarTablas.setVisible(true);
+
+                break;
+
+            default:
+                JOptionPane.showMessageDialog(null, "No se encontró la opción");
+
+        }
+
     }
-    
-    public static void ocultarVentana(){
-     
+
+    public static void ocultarVentana() {
+
         menuPrincipal.setVisible(false);
         cargarUsuario.setVisible(false);
         generarTablas.setVisible(false);
-      
-    }
-    
-    private static boolean primerUsuario(){
-  
-  return false;
-  
-  
-  }  
 
-    public static void mostrar(){
-    
-    System.out.println(conexionDB);
-    
     }
 
-    public static testVentana getTestVentana() {
+    private static boolean primerUsuario() {
+
+        return false;
+
+    }
+
+    public static void mostrar() {
+
+        System.out.println(conexionDB);
+
+    }
+
+    public static TestVentana getTestVentana() {
         return testVentana;
     }
-    
-
 
 }
-
